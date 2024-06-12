@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeguraVía</title>
+    <link rel="stylesheet" href="/Styles/globales.css">
+    <link rel="stylesheet" href="/Styles/header.css">
+    <link rel="stylesheet" href="/Styles/slider.css">
+    <link rel="stylesheet" href="/Styles/section-header.css">
+    <link rel="stylesheet" href="/Styles/footer.css">
+    <link rel="stylesheet" href="/Styles/scripts.css">
+    <link rel="stylesheet" href="/Styles/media-queries.css">
+    <link rel="stylesheet" href="/Styles/reportar.css">
+    <script src="/scripts.js"></script>
+</head>
+<body id="body">
+    <header id="header">
+        <div>
+            <img src="../Images/list.png" alt="list" id="list-img">
+            <img src="../Images/Logo.png" alt="logo" id="logo-img">
+            <img src="../Images/user.png" alt="user" id="user-img">
+        </div>
+    </header>
+    <section class="slider-container" id="slider">
+        <div>
+            <span>Bienvenido a </span>
+            <h1>SeguraVía</h1>
+            <p>INFORMÁ, PROTEGÉ, MEJORÁ</p>
+        </div>
+    </section>
+    <div class="section-header-container" id="header-slider">
+        <div>REPORTAR</div>
+    </div>
+
+    <main  id="data-container">
+        <div>
+            <form action="" id="form-reportar">
+                <input type="text" placeholder="Titulo" class="input-info" id="titulo" required>
+                <input type="text" placeholder="Direccion" class="input-info" id="direccion" required>
+                <input type="text" placeholder="Descripcion" class="input-info" id="descripcion" required>
+                <input type="date" placeholder="Fecha" class="input-info" id="fecha" required>
+                <input type="time" placeholder="Hora" class="input-info" id="hora" required>
+                <div>
+                    <label for="">Mantenimiento
+                        <input type="radio" name="tipo" id="mantenimiento" required>
+                    </label>
+                    <label for="">Accidente
+                        <input type="radio" name="tipo" id="accidente" required>
+                    </label>
+                    <label for="">Corte
+                        <input type="radio" name="tipo" id="corte" required>
+                    </label>
+                </div>
+                <input type="submit" value="Enviar" id="submit">
+            </form>
+        </div>
+    </main>
+    <a href="#header" id="to-top"> <img src="/Images/arrow-up.png" alt="arrow-up" id="arrow-up"> </a>
+    <footer>
+        <div> <a href="">Nosotros</a> </div>
+        <div> <a href="">Preguntas Frecuentes</a> </div>
+        <div> <img src="../Images/face.png" alt="face"> <img src="../Images/insta.png" alt="insta"> </div>
+    </footer>
+    <script src="/Scripts/reportar.js"></script>
+</body>
+</html>

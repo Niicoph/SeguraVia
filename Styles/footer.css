@@ -1,0 +1,39 @@
+footer {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px 0 10px;
+}
+
+footer > div {
+    width: 100%;
+    height: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+footer > div > img {
+    padding: 2px;
+    width: 40px;
+    height: 40px;
+}
+
+footer > div > a {
+    color: #3f41ff;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+footer > div > img:hover , footer > div > a:hover {
+    cursor: pointer;
+    scale: 1.1;
+}

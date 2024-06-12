@@ -1,0 +1,53 @@
+.nav-section-container {   /* main container - holds everything */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-100%); /* Posición inicial fuera de la vista */
+    z-index: 2;
+}
+
+
+.nav-section-container-row-1 {  /* first column - holds cross to exit */
+    width: 100%;
+    height: 5%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.cross-el {
+    cursor: pointer;
+}
+
+.data-row-1 , .data-row-2 , .data-row-3 , .data-row-4 , .data-row-5 , .data-row-6 , .data-row-7 {
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 1.5em;
+}
+
+
+.nav-section-container-row-2 ,.nav-section-container-row-3 , 
+.nav-section-container-row-4 , .nav-section-container-row-5 
+, .nav-section-container-row-6 , .nav-section-container-row-7  {
+    width: 100%;
+    height: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    cursor: pointer;
+}

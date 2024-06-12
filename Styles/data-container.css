@@ -1,0 +1,203 @@
+.recientes-data-container {
+    width: 100%;
+    height: 800px;
+    padding: 20px 40px 20px 40px;
+    overflow: auto;
+}
+
+.filter-container {
+    width: 100%;
+    height: 4%;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 5px;
+}
+
+
+.filter-container > select {
+    border: 1px solid red;
+    width: 10%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.filter-container > form {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+.filter-container > form > input {
+   width: 100%;
+   height: 100%;
+   border-top: none;
+   border-right: none;
+   border-left: none;
+   border-bottom: 1px solid black;
+   background-color: transparent;
+   padding: 5px;
+}
+.filter-container > form > input:focus {
+    outline: none;
+}
+
+
+
+.cards-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card {
+    width: 100%;
+    height: fit-content;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr 1fr;
+}
+
+.card-header {
+    width: 100%;
+    height: 100%;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    grid-column-start: 1;
+    grid-column-end: 7;
+    padding: 10px;
+    display: flex;
+}
+
+.card-header > .left-side > h2 {
+    text-align: left;
+    width: fit-content;
+    width: 100%;
+    overflow: hidden;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 1em;
+    color: black;
+    text-align: left;
+}
+
+.card-header > .left-side > p {
+    text-align: left;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 0.8em;
+    color: black;
+}
+
+.card-header > .right-side > h3 {
+    height: 100%;
+    width: fit-content;
+    max-width: 100%;
+    overflow: auto;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 1em;
+    color: black;
+    text-align: right;
+   
+}
+
+.left-side {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.right-side {
+    width: 30%;
+    height: 100%;
+}
+
+
+
+.card-features {
+    width: 100%;
+    height: 100%;
+    padding: 0px 0px 8px 10px;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.card-features > div {
+    width: 35%;
+    height: 60%;
+    border: 1px solid #5558ff;
+    padding: 2px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+.card-features > div:hover {
+    cursor: pointer;
+}
+
+.card-features > div > img {
+    width: 20px;
+    height: 20px;
+}
+
+.card-more {
+    width: 100%;
+    height: 100%;
+    padding: 0px 10px 8px 10px;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    grid-column-start: 5;
+    grid-column-end: 7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-more > a {
+    background-color: #5558ff;
+    text-decoration: none;
+    width: 100%;
+    height: 60%;
+    padding: 2px;
+    border-radius: 15px;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    text-align: center;
+    color: white;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-more > a:hover{
+    background-color: #3f41ff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+

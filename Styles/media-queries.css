@@ -1,0 +1,87 @@
+
+/* Tablet display design ranging from 601×962 to 1280×800 */
+/* desde 600px hasta 1280 mostrar x */
+@media screen and (min-width: 600px) and (max-width: 1280px) {
+    .slider-container {
+       width: 80%;
+    }
+}
+
+/* Designs ranging from 1280×720 to 1920×1080 for desktop monitors */
+/* desde 1280px hasta 1920px mostrar x */
+@media screen and (min-width: 1280px) and (max-width: 1920px) { 
+    .slider-container > div > h1 {
+        font-size: 4em;
+    }
+    .slider-container > div > span {
+        font-size: 1.7em;
+    }
+    .slider-container {
+        width: 73%;
+    }
+    .section-header-container > div {
+        width: 20%;
+        font-size: 1.1em;
+    }
+    .recientes-data-container {
+        width: 73%;
+    }
+    .card-features > div {
+        width: 15%;
+        font-size: 1.2em;
+    }
+    .card-features > div > img {
+        width: 40px;
+        height: 40px;
+    }
+    .recientes-data-container {
+        height: 800px;
+        overflow: auto;
+        margin-bottom: 20px;
+    }
+    .card-header > h2 , .card-header > h3 {
+        font-size: 1.7em;
+    }
+    .card-more {
+        justify-content: right;
+    }
+    .card-more > a {
+        width: 60%;
+        font-size: 1.2em;
+    }
+    .safety-container {
+        height: 800px;
+    }
+    .safety-container > div {
+        width: 40%;
+    }
+    .safety-container > div > h2 {
+        font-size: 2em;
+    }
+    
+    .safety-card {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+    }
+    .safety-card > div {
+        width: 35%;
+    }
+    .safety-card > div > p {
+        font-size: 1.2em;
+    }
+    #text-card {
+        display: flex;
+        justify-content: left;
+    }
+    .safety-container > div > a {
+        font-size: 1.2em;
+    }
+    .nav-section-container {
+        width: 30%;
+    }
+    #data-container {
+        width: 73%;
+    }
+
+}

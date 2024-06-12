@@ -1,0 +1,80 @@
+{   
+    "Accidentes" : [
+        {
+            "id" : 1,
+            "titulo" : "Accidente de tránsito 1",
+            "fecha" : "2024-06-12",
+            "hora" : "4:00 PM",
+            "hora_publicacion": "10:00 AM",
+            "direccion" : "Av.Roca 2994",
+            "likes" : 200,
+            "comentarios" : 330,
+            "descripcion" : "Accidente de tránsito en la intersección de Av.Roca y Av.Libertador" 
+        }
+    ],
+    "Cortes" : [
+        {
+            "id" : 1,
+            "titulo" : "Corte por manifestacion 1",
+            "fecha" : "2024-06-12",
+            "hora" : "4:00 PM",
+            "hora_publicacion": "12:00 AM",
+            "direccion" : "Av.Roca 2994",
+            "likes" : 200,
+            "comentarios" : 330,
+            "descripcion" : "Corte por manifestacion"
+        }
+    ],
+    "Mantenimiento" : [
+        {
+            "id" : 1,
+            "titulo" : "Mantenimiento banquina",
+            "fecha" : "2024-06-12",
+            "hora" : "4:00 PM",
+            "hora_publicacion": "12:00 AM",
+            "direccion" : "Av.Roca 2994",
+            "likes" : 200,
+            "comentarios" : 330,
+            "descripcion" : "Corte por mantenimiento de cañería de agua"
+        }
+        
+    ], 
+    "Usuarios" : [
+        {
+            "id" : 1,
+            "nombre" : "Juan",
+            "apellido" : "Perez",
+            "email" : "juan@perez.com",
+            "password" : "1234"
+        },
+        {
+            "id" : 2,
+            "nombre" : "Maria",
+            "apellido" : "Gomez",
+            "email" : "maria@gomez.com",
+            "password" : "12345"
+        },
+        {
+            "id" : 2,
+            "nombre" : "Pedro",
+            "apellido" : "Ramirez",
+            "email" : "pedro@ramirez.com",
+            "password" : "123456"
+        },
+        {
+            "id" : 2,
+            "nombre" : "Mariela",
+            "apellido" : "Gomez",
+            "email" : "mariela@gomez.com",
+            "password" : "1234567"
+        },
+        {
+            "id" : 2,
+            "nombre" : "Marcelo",
+            "apellido" : "Gomez",
+            "email" : "marcelo@gomez.com",
+            "password" : "12345678"
+        }
+    ]
+
+}

@@ -1,0 +1,33 @@
+.section-header-container {
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%;
+    height: 60px;
+    background-color: #5558ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.section-header-container > div {
+    height: 100%;
+    width: 40%;
+    background-color: white;
+    border-radius: 8px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 0.8rem;
+    
+}
+
+.section-header-container > div:hover {
+    cursor: pointer;
+    background-color: #5558ff;
+    border: 3px solid white;
+    color: white;
+}
