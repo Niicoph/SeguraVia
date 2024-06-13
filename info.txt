@@ -6,9 +6,8 @@ Priority list
 
 modificar seccion HOME/recientes  -- 1 ✅ -- aplicamos renderizado en base al horario y al dia, de modo que siempre se filtran los 5 mas actuales.
 implementar logica JS integracion de tickets (reportar) -- 2 ✅ -- se aplico logica para manejar el JSON y localStorage 
+implementar login inicio usuarios   -- 3 ✅
 implementar aviso correcto o fallo al crear un nuevo reporte -- x ❌
-implementar login inicio usuarios   -- 3 🕛️
-implemenar seccion "nosotros , pregutas frecuentes" -- 4 ❌
 Implementar el menu de ver mas ( mapa? API? ) -- 5 ❌
 implementar sistema de comentarios y likes en base a los usuarios -- 6 ❌
 implementar animacion likes (cambio de imagenes)  -- 7 ❌

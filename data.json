@@ -3,8 +3,8 @@
         {
             "id" : 1,
             "titulo" : "Accidente de tránsito 1",
-            "fecha" : "2024-06-12",
-            "hora" : "4:00 PM",
+            "fecha" : "2024-06-13",
+            "hora" : "12:00 PM",
             "hora_publicacion": "10:00 AM",
             "direccion" : "Av.Roca 2994",
             "likes" : 200,
@@ -15,9 +15,9 @@
     "Cortes" : [
         {
             "id" : 1,
-            "titulo" : "Corte por manifestacion 1",
-            "fecha" : "2024-06-12",
-            "hora" : "4:00 PM",
+            "titulo" : "Corte por manifestacion ",
+            "fecha" : "2024-06-13",
+            "hora" : "12:00 PM",
             "hora_publicacion": "12:00 AM",
             "direccion" : "Av.Roca 2994",
             "likes" : 200,

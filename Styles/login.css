@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%
+}
+
+body > div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    border: 1px solid #cccccc
+}
+
+header {
+    width: 100%;
+    height: 170px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    width: 100%;
+    height: 100%;
+}
+
+section > form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.input-info {
+    width: 100%;
+    height: 35px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding: 10px;
+    color: black;
+}
+
+#username-i {
+    margin-bottom: 5px;
+}
+
+#password-i {
+    margin-bottom: 20px;
+}
+
+section > form > div {
+    margin-top: 10px;
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-weight: 800;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: #8e8e8e;
+}
+
+hr {
+    width: 100%;
+    border: 0.1px solid #cccccc;
+}
+
+a {
+    color: #3f41ff;
+    text-decoration: none;
+    font-weight: 400;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    margin-top: 30px;
+}
+
+
+button {
+    width: 100%;
+    height: 50px;
+    background-color:#3f41ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 800;
+}
+
+label {
+    margin-top: 10px;
+    font-weight: 200;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+
+label > a {
+    color: #3f41ff;
+    text-decoration: none;
+    font-weight: 900;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+
+footer {
+    width: 100%;
+    height: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+}
+
+footer > p {
+    text-decoration: none;
+    font-weight: 400;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+footer > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    height: fit-content;
+}
+
+div > img {
+    width: 100%;
+    height: 50px;
+}
+
+#error {
+    color: red;
+    font-weight: 500;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    margin-bottom: 10px;
+}

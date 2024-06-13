@@ -129,9 +129,16 @@ document.addEventListener("DOMContentLoaded", function() {
             sectionContainer.style.transform = 'translateX(0)';
         } , 0);
     })
-      // evento al tocar el icono de usuario
+      // evento al tocar el icono de usuario (evaluar si esta logeado o no)
       userIcon.addEventListener('click', function() {
+        const user = localStorage.getItem('user');
+        if (user) {
+          // Parsea el JSON a un objeto
+          const userObject = JSON.parse(user);
+          alert('Hola! ' + userObject.nombre);
+        } else {
         window.location.href = "/sections/login.html";
+        }
     });
 
 });

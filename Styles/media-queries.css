@@ -1,15 +1,34 @@
 
 /* Tablet display design ranging from 601×962 to 1280×800 */
 /* desde 600px hasta 1280 mostrar x */
+
+/* parte de un test de media queries */
+@media screen and (min-width: 0px) and (max-width: 300px){
+    #login-main {
+        width: 300px;
+        height: 100%
+    }
+}
+
+
 @media screen and (min-width: 600px) and (max-width: 1280px) {
     .slider-container {
        width: 80%;
     }
+    #login-main {
+        width: 400px;
+        height: 80%;
+    }
+
 }
 
 /* Designs ranging from 1280×720 to 1920×1080 for desktop monitors */
 /* desde 1280px hasta 1920px mostrar x */
 @media screen and (min-width: 1280px) and (max-width: 1920px) { 
+    #login-main {
+        width: 400px;
+        height: 700px;
+    }
     .slider-container > div > h1 {
         font-size: 4em;
     }
