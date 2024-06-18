@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function() {
         const titulo = document.getElementById('titulo');
         const direccion = document.getElementById('direccion');
         const descripcion = document.getElementById('descripcion');
-        const fecha = document.getElementById('fecha');
         const hora = document.getElementById('hora');
         // Obtener el id del tipo seleccionado al enviar el formulario
         const tipo = document.querySelector('input[name="tipo"]:checked');
@@ -19,9 +18,13 @@ document.addEventListener("DOMContentLoaded", function() {
         const tituloValue = titulo.value;
         const direccionValue = direccion.value;
         const descripcionValue = descripcion.value;
-        const fechaValue = fecha.value;
+        // recuperamos la fecha del reporte en formato dd/mm/yyyy para no tener conflictos
+        const fecha = new Date().toLocaleDateString();
+        const fechaParts = fecha.split('/');
+        const fechaValue = fechaParts[2] + '-' +
+        ('0' + fechaParts[0]).slice(-2) + '-' +
+        ('0' + fechaParts[1]).slice(-2);
         const horaValue = hora.value;
-
         // Se pueden agregar validaciones aquí (por ejemplo, verificar la dirección en una API de geolocalización)
         // recuperamos los cortes utilizando un fetch para calcular la cantidad y crear un id correcto
         fetch('/data.json')
@@ -73,6 +76,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
                 cortesGuardados.push(corte);
                 localStorage.setItem('cortes', JSON.stringify(cortesGuardados));
+                alert('Corte reportado correctamente');
+                event.target.reset();
             } else if (tipoValue === 'accidente') {
                 const accidentes = data.Accidentes;
                 const horaFormato12 = obtenerFormato12Horas(horaValue);
@@ -96,6 +101,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
                 accidentesGuardados.push(accidente);
                 localStorage.setItem('accidente', JSON.stringify(accidentesGuardados));
+                alert('Corte reportado correctamente');
+                event.target.reset();
             } else {
                 const mantenimientos = data.Mantenimiento;
                 const horaFormato12 = obtenerFormato12Horas(horaValue);
@@ -119,6 +126,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
                 mantenimientosGuardados.push(mantenimiento);
                 localStorage.setItem('mantenimientos', JSON.stringify(mantenimientosGuardados));
+                alert('Corte reportado correctamente');
+                event.target.reset();
             }
         })
         .catch(error => {

@@ -108,6 +108,24 @@ document.addEventListener('DOMContentLoaded', function() {
             const cardMore = document.createElement('div');
             cardMore.className = 'card-more';
             const moreButton = document.createElement('a');
+            const tipo = `${reciente.tipo}`;
+            const id = `${reciente.id}`;
+            (tipo === 'accidente') ? 
+            moreButton.href = `/sections/accidentes-mas.html` : (tipo === 'corte') ? 
+            moreButton.href = `/sections/cortes-mas.html` : 
+            moreButton.href = `/sections/mantenimientos-mas.html`;
+
+            moreButton.addEventListener('click', function() {
+                if (tipo === 'accidente') {
+                    localStorage.setItem('accidenteId', id);
+                } else if (tipo === 'corte') {
+                    localStorage.setItem('corteId', id);
+                } else {
+                    localStorage.setItem('mantenimientoId', id);
+                }
+            });
+
+
             moreButton.innerHTML = 'Ver más';
             cardMore.appendChild(moreButton);
             card.appendChild(cardFeatures);
@@ -202,6 +220,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const cardMore = document.createElement('div');
             cardMore.className = 'card-more';
             const moreButton = document.createElement('a');
+            const id = `${accidente.id}`;
+            moreButton.href = `/verMas/accidentes.html/${id}` 
             moreButton.innerHTML = 'Ver más';
             cardMore.appendChild(moreButton);
             card.appendChild(cardFeatures);
@@ -300,6 +320,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const cardMore = document.createElement('div');
             cardMore.className = 'card-more';
             const moreButton = document.createElement('a');
+            const id = `${cortes.id}`;
+            moreButton.href = `/verMas/cortes.html/${id}` 
             moreButton.innerHTML = 'Ver más';
             cardMore.appendChild(moreButton);
             card.appendChild(cardFeatures);
@@ -398,6 +420,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const cardMore = document.createElement('div');
             cardMore.className = 'card-more';
             const moreButton = document.createElement('a');
+            const id = `${mantenimientos.id}`;
+            moreButton.href = `/verMas/mantenimientos.html/${id}` 
             moreButton.innerHTML = 'Ver más';
             cardMore.appendChild(moreButton);
             card.appendChild(cardFeatures);

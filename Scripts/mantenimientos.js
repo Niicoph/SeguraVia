@@ -104,6 +104,12 @@ document.addEventListener("DOMContentLoaded", function() {
                         });
                         break;
                     case '2':
+                        let fecha = new Date();
+                        let dia = fecha.getDate();
+                        filteredMantenimientos = mantenimientos.filter( mantenimientos => {
+                            let diaMantenimiento = mantenimientos.fecha.split('-')[2];
+                            return diaMantenimiento === dia.toString();
+                        })
                         break;
                     case '3':
                         let date = new Date();

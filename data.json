@@ -2,11 +2,22 @@
     "Accidentes" : [
         {
             "id" : 1,
-            "titulo" : "Accidente de tránsito 1",
-            "fecha" : "2024-06-13",
-            "hora" : "12:00 PM",
-            "hora_publicacion": "10:00 AM",
+            "titulo" : "Accidente de tránsito",
+            "fecha" : "2024-06-14",
+            "hora" : "10:00 AM",
+            "tipo": "accidente",
             "direccion" : "Av.Roca 2994",
+            "likes" : 200,
+            "comentarios" : 330,
+            "descripcion" : "Accidente de tránsito en la intersección de Av.Roca y Av.Libertador" 
+        } , 
+        {
+            "id" : 2,
+            "titulo" : "Accidente de tránsito 2",
+            "fecha" : "2024-06-14",
+            "hora" : "10:00 AM",
+            "tipo": "accidente",
+            "direccion" : "Av.Roca",
             "likes" : 200,
             "comentarios" : 330,
             "descripcion" : "Accidente de tránsito en la intersección de Av.Roca y Av.Libertador" 
@@ -16,9 +27,9 @@
         {
             "id" : 1,
             "titulo" : "Corte por manifestacion ",
-            "fecha" : "2024-06-13",
-            "hora" : "12:00 PM",
-            "hora_publicacion": "12:00 AM",
+            "fecha" : "2024-06-14",
+            "hora" : "10:00 AM",
+            "tipo": "corte",
             "direccion" : "Av.Roca 2994",
             "likes" : 200,
             "comentarios" : 330,
@@ -29,9 +40,9 @@
         {
             "id" : 1,
             "titulo" : "Mantenimiento banquina",
-            "fecha" : "2024-06-12",
-            "hora" : "4:00 PM",
-            "hora_publicacion": "12:00 AM",
+            "fecha" : "2024-06-14",
+            "hora" : "10:00 AM",
+            "tipo": "mantenimiento",
             "direccion" : "Av.Roca 2994",
             "likes" : 200,
             "comentarios" : 330,

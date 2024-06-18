@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+main {
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+}
+.title {
+    width: 100%;
+    height: 6%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 1em;
+    color: black;
+}
+
+.info-container {
+    height: 20%;
+    width: 100%;
+    border: 1px solid green;
+    display: flex;
+
+}
+
+.left-side-l {
+    width: 100%;
+    height: 100%;
+    border: 1px solid blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+.right-side-r {
+    width: 60%;
+    height: 100%;
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.right-side-r > p {
+    text-align: center;
+    font-size: 15px;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 5px;
+    width: 90%;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    color: black;
+}
+
+.map-container {
+    width: 100%;
+    height: 100%;
+    border: 1px solid red;
+}

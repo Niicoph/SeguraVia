@@ -111,7 +111,12 @@ document.addEventListener("DOMContentLoaded", function() {
                         })
                         break;
                     case '2':
-                        // logico ultima semana
+                        let fecha = new Date();
+                        let dia = fecha.getDate();
+                        filteredAccidentes = accidentes.filter(accidente => {
+                            let diaAccidente =accidente.fecha.split('-')[2];
+                            return diaAccidente === dia.toString();
+                        })
                         break;
                     case '3':
                         let date = new Date();

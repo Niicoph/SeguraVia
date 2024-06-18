@@ -107,6 +107,12 @@ document.addEventListener("DOMContentLoaded", function() {
                     })
                     break;
                 case '2':
+                    let fecha = new Date();
+                    let dia = fecha.getDate();
+                    filteredCortes = cortes.filter( corte => {
+                        let diaCorte = corte.fecha.split('-')[2];
+                        return diaCorte === dia.toString();
+                    })
                     break;
                 case '3':
                     let date = new Date();
