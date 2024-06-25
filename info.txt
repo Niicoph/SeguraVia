@@ -9,6 +9,9 @@ implementar logica JS integracion de tickets (reportar) -- 2 ✅ -- se aplico lo
 implementar login inicio usuarios   -- 3 ✅
 implementar aviso correcto o fallo al crear un nuevo reporte -- ✅
 Implementar el menu de ver mas ( mapa? API? ) -- 5 🕛️
+agregar ver mas en todas las secciones (actualmente se encuentran unicamente en recientes)
+dado que no podemos implementar el uso de una API o libreria externa, debemos cargar un iframe random 
+
 implementar sistema de comentarios y likes en base a los usuarios -- 6 ❌
 implementar animacion likes (cambio de imagenes)  -- 7 ❌
 implementar filtrado por texto (ajax?) ❌
@@ -18,3 +21,14 @@ fixear bugs
 arreglar estructura de carpetas
 cambiar UX/UI
 
+
+
+HACER TODOOOOOOOOOOOOOOo
+
+
+2-agregar nombre y apellido en el login?
+5-Checkear que funcionen los filtros en cada seccion 
+6-implementar el filtrado por texto de input 
+9-podriamos agregar quien realizo el reporte (usuario)
+10-arreglar bug visual cuando hay 5 recientes
+11-Arreglar toda interfaz visual 

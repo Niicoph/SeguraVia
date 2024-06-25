@@ -3,7 +3,6 @@
     height: 800px;
     padding: 20px 40px 20px 40px;
     overflow: auto;
-    border: 1px solid red;
 }
 
 .filter-container {
@@ -16,7 +15,6 @@
 
 
 .filter-container > select {
-    border: 1px solid red;
     width: 10%;
     height: 100%;
     border-radius: 5px;

@@ -2,51 +2,219 @@
     "Accidentes" : [
         {
             "id" : 1,
-            "titulo" : "Accidente de tránsito",
-            "fecha" : "2024-06-14",
-            "hora" : "10:00 AM",
+            "titulo" : "Accidente de tránsito 1",
+            "fecha" : "2024-06-25",
+            "hora" : "6:14 PM",
             "tipo": "accidente",
             "direccion" : "Av.Roca 2994",
-            "likes" : 200,
-            "comentarios" : 330,
-            "descripcion" : "Accidente de tránsito en la intersección de Av.Roca y Av.Libertador" 
+            "likes" : 10,
+            "comentarios" : 0,
+            "descripcion" : "Accidente de tránsito en la intersección de Av.Roca y Av.Libertador" , 
+            "comentario" : [
+                {
+                    "id" : 1,
+                    "usuario" : "Juan Perez",
+                    "comentario" : "Que mal"
+                },
+                {
+                    "id" : 2,
+                    "usuario" : "Maria Gomez",
+                    "comentario" : "Que mal"
+                } , 
+                {
+                    "id" : 3,
+                    "usuario" : "Pedro Ramirez",
+                    "comentario" : "Que mal"
+                }
+            ]
         } , 
         {
             "id" : 2,
-            "titulo" : "Accidente de tránsito 2",
-            "fecha" : "2024-06-14",
-            "hora" : "10:00 AM",
+            "titulo" : "Accidente de transito 2",
+            "fecha" : "2024-06-25",
+            "hora" : "5:00 PM",
+            "tipo": "accidente",
+            "direccion" : "Av.Roca",
+            "likes" : 0,
+            "comentarios" : 330,
+            "descripcion" : "Accidente de tránsito en la intersección de Av.Roca y Av.Libertador" , 
+            "comentario" : [
+                {
+                    "id" : 1,
+                    "usuario" : "Juan Perez",
+                    "comentario" : "Que mal"
+                },
+                {
+                    "id" : 2,
+                    "usuario" : "Maria Gomez",
+                    "comentario" : "Que mal"
+                }
+            ]
+        }, 
+        {
+            "id" : 3,
+            "titulo" : "Accidente de transito 3",
+            "fecha" : "2024-02-25",
+            "hora" : "5:00 PM",
             "tipo": "accidente",
             "direccion" : "Av.Roca",
             "likes" : 200,
-            "comentarios" : 330,
-            "descripcion" : "Accidente de tránsito en la intersección de Av.Roca y Av.Libertador" 
+            "comentarios" : 0,
+            "descripcion" : "Accidente de tránsito en la intersección de Av.Roca y Av.Libertador" , 
+            "comentario" : [
+                {
+                    "id" : 1,
+                    "usuario" : "Juan Perez",
+                    "comentario" : "Que mal"
+                },
+                {
+                    "id" : 2,
+                    "usuario" : "Maria Gomez",
+                    "comentario" : "Que mal"
+                }
+            ]
         }
     ],
     "Cortes" : [
         {
             "id" : 1,
-            "titulo" : "Corte por manifestacion ",
-            "fecha" : "2024-06-14",
-            "hora" : "10:00 AM",
+            "titulo" : "corte de luz",
+            "fecha" : "2024-06-25",
+            "hora" : "6:00 PM",
             "tipo": "corte",
-            "direccion" : "Av.Roca 2994",
+            "direccion" : "Av.Roca",
+            "likes" : 5,
+            "comentarios" : 0,
+            "descripcion" : "Accidente de tránsito en la intersección de Av.Roca y Av.Libertador" , 
+            "comentario" : [
+                {
+                    "id" : 1,
+                    "usuario" : "Juan Perez",
+                    "comentario" : "Que bien"
+                },
+                {
+                    "id" : 2,
+                    "usuario" : "Maria Gomez",
+                    "comentario" : "Que mal"
+                }
+            ]
+        } , 
+        {
+            "id" : 2,
+            "titulo" : "corte de luz 2",
+            "fecha" : "2024-02-25",
+            "hora" : "5:00 PM",
+            "tipo": "corte",
+            "direccion" : "Av.Roca",
+            "likes" : 0,
+            "comentarios" : 0,
+            "descripcion" : "Accidente de tránsito en la intersección de Av.Roca y Av.Libertador" , 
+            "comentario" : [
+                {
+                    "id" : 1,
+                    "usuario" : "Juan Perez",
+                    "comentario" : "Que bien"
+                },
+                {
+                    "id" : 2,
+                    "usuario" : "Maria Gomez",
+                    "comentario" : "Que mal"
+                }
+            ]
+        } , 
+        {
+            "id" : 3,
+            "titulo" : "corte de luz 3",
+            "fecha" : "2024-10-25",
+            "hora" : "5:00 PM",
+            "tipo": "corte",
+            "direccion" : "Av.Roca",
             "likes" : 200,
-            "comentarios" : 330,
-            "descripcion" : "Corte por manifestacion"
+            "comentarios" : 0,
+            "descripcion" : "Accidente de tránsito en la intersección de Av.Roca y Av.Libertador" , 
+            "comentario" : [
+                {
+                    "id" : 1,
+                    "usuario" : "Juan Perez",
+                    "comentario" : "Que bien"
+                },
+                {
+                    "id" : 2,
+                    "usuario" : "Maria Gomez",
+                    "comentario" : "Que mal"
+                }
+            ]
         }
     ],
     "Mantenimiento" : [
         {
             "id" : 1,
-            "titulo" : "Mantenimiento banquina",
-            "fecha" : "2024-06-14",
-            "hora" : "10:00 AM",
+            "titulo" : "mantenimiento de prueba",
+            "fecha" : "2024-06-25",
+            "hora" : "6:00 PM",
             "tipo": "mantenimiento",
-            "direccion" : "Av.Roca 2994",
-            "likes" : 200,
-            "comentarios" : 330,
-            "descripcion" : "Corte por mantenimiento de cañería de agua"
+            "direccion" : "Av.Roca",
+            "likes" : 0,
+            "comentarios" : 0,
+            "descripcion" : "Accidente de tránsito en la intersección de Av.Roca y Av.Libertador" , 
+            "comentario" : [
+                {
+                    "id" : 1,
+                    "usuario" : "Juan Perez",
+                    "comentario" : "Que bien"
+                },
+                {
+                    "id" : 2,
+                    "usuario" : "Maria Gomez",
+                    "comentario" : "Que mal"
+                }
+            ]
+        } , 
+        {
+            "id" : 2,
+            "titulo" : "mantenimiento de prueba 2",
+            "fecha" : "2024-02-25",
+            "hora" : "5:00 PM",
+            "tipo": "mantenimiento",
+            "direccion" : "Av.Roca",
+            "likes" : 0,
+            "comentarios" : 0,
+            "descripcion" : "testing asDASDASD" , 
+            "comentario" : [
+                {
+                    "id" : 1,
+                    "usuario" : "Juan Perez",
+                    "comentario" : "Que bxdxd"
+                },
+                {
+                    "id" : 2,
+                    "usuario" : "Maria Gomez",
+                    "comentario" : "Que dsdasd"
+                }
+            ]
+        } , 
+        {
+            "id" : 3,
+            "titulo" : "mantenimiento de prueba 3",
+            "fecha" : "2024-10-25",
+            "hora" : "5:00 PM",
+            "tipo": "mantenimiento",
+            "direccion" : "Av.Roca",
+            "likes" : 0,
+            "comentarios" : 0,
+            "descripcion" : "Accidente de tránsito en la intersección de Av.Roca y Av.Libertador" , 
+            "comentario" : [
+                {
+                    "id" : 1,
+                    "usuario" : "Juan Perez",
+                    "comentario" : "Que bien"
+                },
+                {
+                    "id" : 2,
+                    "usuario" : "Maria Gomez",
+                    "comentario" : "Que mal"
+                }
+            ]
         }
         
     ], 

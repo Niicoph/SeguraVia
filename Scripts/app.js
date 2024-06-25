@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    let accidentesLocalStorage = localStorage.getItem('accidentes');
+    let accidentesLocalStorage = localStorage.getItem('accidente');
     let cortesLocalStorage = localStorage.getItem('cortes');
     let mantenimientosLocalStorage = localStorage.getItem('mantenimientos');
 
@@ -89,18 +89,83 @@ document.addEventListener('DOMContentLoaded', function() {
             // Característica 1: Likes
             const cardFeaturesChild1 = document.createElement('div');
             const imgLikes = document.createElement('img');
-            imgLikes.src = '/Images/like:before.png';
+            imgLikes.src = '/Images/like_before.png';
             const likesCount = document.createElement('p');
             likesCount.textContent = `${reciente.likes}`;
             cardFeaturesChild1.appendChild(imgLikes);
             cardFeaturesChild1.appendChild(likesCount);
             cardFeatures.appendChild(cardFeaturesChild1);
+            // Logica de like 
+            // 1- verificamos que el usuario este logueado para poder dar like
+            // 2- verificamos si el usuario ya dio like, si ya dio like, cambiamos la imagen
+
+            cardFeaturesChild1.addEventListener('click', function() {
+                const user = JSON.parse(localStorage.getItem('user'));
+            
+                if (user) {
+                    const likeKey = `like${reciente.tipo}${reciente.id}`;
+                    let likes = parseInt(localStorage.getItem(likeKey)) 
+                    let likesJson = reciente.likes;
+
+                    if (!likes) {
+                        imgLikes.src = '/Images/like_after.png';
+                        likesCount.textContent = likesJson + 1;
+                        localStorage.setItem(likeKey, likesJson + 1);
+                    } else {
+                        imgLikes.src = '/Images/like_before.png';
+                        likesCount.textContent = likesJson
+                        localStorage.removeItem(likeKey);
+                    }
+
+
+
+                } else {
+                    alert('Debes iniciar sesión para poder dar like');
+                }
+            });
+
             // Característica 2: Comentarios
             const cardFeaturesChild2 = document.createElement('div');
             const imgComments = document.createElement('img');
             imgComments.src = '/Images/comment.png';
             const commentsCount = document.createElement('p');
-            commentsCount.textContent = `${reciente.comentarios}`;
+            // commentsCount.textContent = `${reciente.comentarios}`;
+            const tipo = `${reciente.tipo}`;
+            const id = `${reciente.id}`;
+
+            // recuperamos la cantidad de comentarios del JSON 
+            const countComentariosJson = reciente.comentario.length
+            // recuperamos la cantidad total de comentarios de ese id 
+            // convertimos tipo a String con la primera letra en mayúscula
+            const tipoCapitalizado = tipo.charAt(0).toUpperCase() + tipo.slice(1).toLowerCase();
+
+            const countComentariosTotales = localStorage.getItem(`comentarios${tipoCapitalizado}${id}Length`) 
+
+            if (!countComentariosTotales) {
+                if (countComentariosJson > 0) {
+                    commentsCount.textContent = countComentariosJson
+                } else {
+                    commentsCount.textContent = 0
+                }                
+            } else {
+                commentsCount.textContent = parseInt(countComentariosTotales)
+            }
+
+            cardFeaturesChild2.addEventListener('click', function() {
+                if (tipo === 'accidente') {
+                    localStorage.setItem('accidenteId', id);
+                    window.location.href = '/sections/accidentes-mas.html#comments';
+                } else if (tipo === 'corte') {
+                    localStorage.setItem('corteId', id);
+                    window.location.href = '/sections/cortes-mas.html#comments';
+                } else {
+                    localStorage.setItem('mantenimientoId', id);
+                    window.location.href = '/sections/mantenimientos-mas.html#comments';
+                }
+            });
+
+
+
             cardFeaturesChild2.appendChild(imgComments);
             cardFeaturesChild2.appendChild(commentsCount);
             cardFeatures.appendChild(cardFeaturesChild2);
@@ -108,12 +173,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const cardMore = document.createElement('div');
             cardMore.className = 'card-more';
             const moreButton = document.createElement('a');
-            const tipo = `${reciente.tipo}`;
-            const id = `${reciente.id}`;
             (tipo === 'accidente') ? 
             moreButton.href = `/sections/accidentes-mas.html` : (tipo === 'corte') ? 
             moreButton.href = `/sections/cortes-mas.html` : 
-            moreButton.href = `/sections/mantenimientos-mas.html`;
+            moreButton.href = `/sections/mantenimientos-mas.html`
 
             moreButton.addEventListener('click', function() {
                 if (tipo === 'accidente') {
@@ -201,27 +264,77 @@ document.addEventListener('DOMContentLoaded', function() {
             // Característica 1: Likes
             const cardFeaturesChild1 = document.createElement('div');
             const imgLikes = document.createElement('img');
-            imgLikes.src = '/Images/like:before.png';
+            imgLikes.src = '/Images/like_before.png';
             const likesCount = document.createElement('p');
             likesCount.textContent = `${accidente.likes}`;
             cardFeaturesChild1.appendChild(imgLikes);
             cardFeaturesChild1.appendChild(likesCount);
             cardFeatures.appendChild(cardFeaturesChild1);
+
+            cardFeaturesChild1.addEventListener('click', function() {
+                const user = JSON.parse(localStorage.getItem('user'));
+            
+                if (user) {
+                    const likeKey = `like${accidente.tipo}${accidente.id}`;
+                    let likes = parseInt(localStorage.getItem(likeKey)) 
+                    let likesJson = accidente.likes;
+
+                    if (!likes) {
+                        imgLikes.src = '/Images/like_after.png';
+                        likesCount.textContent = likesJson + 1;
+                        localStorage.setItem(likeKey, likesJson + 1);
+                    } else {
+                        imgLikes.src = '/Images/like_before.png';
+                        likesCount.textContent = likesJson
+                        localStorage.removeItem(likeKey);
+                    }
+
+
+
+                } else {
+                    alert('Debes iniciar sesión para poder dar like');
+                }
+            });
+
+
+
             // Característica 2: Comentarios
+            const id = `${accidente.id}`;
+
             const cardFeaturesChild2 = document.createElement('div');
             const imgComments = document.createElement('img');
             imgComments.src = '/Images/comment.png';
             const commentsCount = document.createElement('p');
-            commentsCount.textContent = `${accidente.comentarios}`;
+            // commentsCount.textContent = `${accidente.comentarios}`;
+
+            // recuperamos la cantidad de comentarios del JSON
+            const countComentariosJson = accidente.comentario.length
+            // recuperamos la cantidad total de comentarios de ese id
+            const countComentariosTotales = localStorage.getItem(`comentariosAccidente${id}Length`)
+
+            if (!countComentariosTotales) {
+                if (countComentariosJson > 0) {
+                    commentsCount.textContent = countComentariosJson
+                } else {
+                    commentsCount.textContent = 0
+                }                
+            } else {
+                commentsCount.textContent = parseInt(countComentariosTotales)
+            }
+
+
             cardFeaturesChild2.appendChild(imgComments);
             cardFeaturesChild2.appendChild(commentsCount);
             cardFeatures.appendChild(cardFeaturesChild2);
+
+            cardFeaturesChild2.addEventListener('click', function() {
+                window.location.href = `/sections/accidentes-mas.html#comments`;
+            });
             // card-more
             const cardMore = document.createElement('div');
             cardMore.className = 'card-more';
             const moreButton = document.createElement('a');
-            const id = `${accidente.id}`;
-            moreButton.href = `/verMas/accidentes.html/${id}` 
+            moreButton.href = `/sections/accidentes-mas.html`
             moreButton.innerHTML = 'Ver más';
             cardMore.appendChild(moreButton);
             card.appendChild(cardFeatures);
@@ -301,18 +414,64 @@ document.addEventListener('DOMContentLoaded', function() {
             // Característica 1: Likes
             const cardFeaturesChild1 = document.createElement('div');
             const imgLikes = document.createElement('img');
-            imgLikes.src = '/Images/like:before.png';
+            imgLikes.src = '/Images/like_before.png';
             const likesCount = document.createElement('p');
             likesCount.textContent = `${cortes.likes}`;
             cardFeaturesChild1.appendChild(imgLikes);
             cardFeaturesChild1.appendChild(likesCount);
             cardFeatures.appendChild(cardFeaturesChild1);
+
+            cardFeaturesChild1.addEventListener('click', function() {
+                const user = JSON.parse(localStorage.getItem('user'));
+            
+                if (user) {
+                    const likeKey = `like${cortes.tipo}${cortes.id}`;
+                    let likes = parseInt(localStorage.getItem(likeKey)) 
+                    let likesJson = cortes.likes;
+
+                    if (!likes) {
+                        imgLikes.src = '/Images/like_after.png';
+                        likesCount.textContent = likesJson + 1;
+                        localStorage.setItem(likeKey, likesJson + 1);
+                    } else {
+                        imgLikes.src = '/Images/like_before.png';
+                        likesCount.textContent = likesJson
+                        localStorage.removeItem(likeKey);
+                    }
+
+
+
+                } else {
+                    alert('Debes iniciar sesión para poder dar like');
+                }
+            });
+
+
+
+
+
+
             // Característica 2: Comentarios
+            const id = `${cortes.id}`;
             const cardFeaturesChild2 = document.createElement('div');
             const imgComments = document.createElement('img');
             imgComments.src = '/Images/comment.png';
             const commentsCount = document.createElement('p');
-            commentsCount.textContent = `${cortes.comentarios}`;
+            
+            const countComentariosJson = cortes.comentario.length
+            const countComentariosTotales = localStorage.getItem(`comentariosCorte${id}Length`)
+            if (!countComentariosTotales) {
+                if (countComentariosJson > 0) {
+                    commentsCount.textContent = countComentariosJson
+                } else {
+                    commentsCount.textContent = 0
+                }                
+            } else {
+                commentsCount.textContent = parseInt(countComentariosTotales)
+            }
+
+
+
             cardFeaturesChild2.appendChild(imgComments);
             cardFeaturesChild2.appendChild(commentsCount);
             cardFeatures.appendChild(cardFeaturesChild2);
@@ -320,8 +479,16 @@ document.addEventListener('DOMContentLoaded', function() {
             const cardMore = document.createElement('div');
             cardMore.className = 'card-more';
             const moreButton = document.createElement('a');
-            const id = `${cortes.id}`;
-            moreButton.href = `/verMas/cortes.html/${id}` 
+
+            cardFeaturesChild2.addEventListener('click', function() {
+                window.location.href = `/sections/cortes-mas.html#comments`;
+            });
+            moreButton.addEventListener('click', function() {
+                localStorage.setItem('corteId', id);
+            });
+
+
+            moreButton.href = `/sections/cortes-mas.html`
             moreButton.innerHTML = 'Ver más';
             cardMore.appendChild(moreButton);
             card.appendChild(cardFeatures);
@@ -401,18 +568,62 @@ document.addEventListener('DOMContentLoaded', function() {
             // Característica 1: Likes
             const cardFeaturesChild1 = document.createElement('div');
             const imgLikes = document.createElement('img');
-            imgLikes.src = '/Images/like:before.png';
+            imgLikes.src = '/Images/like_before.png';
             const likesCount = document.createElement('p');
             likesCount.textContent = `${mantenimientos.likes}`;
             cardFeaturesChild1.appendChild(imgLikes);
             cardFeaturesChild1.appendChild(likesCount);
             cardFeatures.appendChild(cardFeaturesChild1);
+
+            cardFeaturesChild1.addEventListener('click', function() {
+                const user = JSON.parse(localStorage.getItem('user'));
+            
+                if (user) {
+                    const likeKey = `like${mantenimientos.tipo}${mantenimientos.id}`;
+                    let likes = parseInt(localStorage.getItem(likeKey)) 
+                    let likesJson = mantenimientos.likes;
+
+                    if (!likes) {
+                        imgLikes.src = '/Images/like_after.png';
+                        likesCount.textContent = likesJson + 1;
+                        localStorage.setItem(likeKey, likesJson + 1);
+                    } else {
+                        imgLikes.src = '/Images/like_before.png';
+                        likesCount.textContent = likesJson
+                        localStorage.removeItem(likeKey);
+                    }
+
+
+
+                } else {
+                    alert('Debes iniciar sesión para poder dar like');
+                }
+            });
+
+
+
             // Característica 2: Comentarios
+            const id = `${mantenimientos.id}`;
+
             const cardFeaturesChild2 = document.createElement('div');
             const imgComments = document.createElement('img');
             imgComments.src = '/Images/comment.png';
             const commentsCount = document.createElement('p');
-            commentsCount.textContent = `${mantenimientos.comentarios}`;
+            // commentsCount.textContent = `${mantenimientos.comentarios}`;
+
+            const countComentariosJson = mantenimientos.comentario.length
+            const countComentariosTotales = localStorage.getItem(`comentariosMantenimiento${id}Length`)
+            if (!countComentariosTotales) {
+                if (countComentariosJson > 0) {
+                    commentsCount.textContent = countComentariosJson
+                } else {
+                    commentsCount.textContent = 0
+                }                
+            } else {
+                commentsCount.textContent = parseInt(countComentariosTotales)
+            }
+
+
             cardFeaturesChild2.appendChild(imgComments);
             cardFeaturesChild2.appendChild(commentsCount);
             cardFeatures.appendChild(cardFeaturesChild2);
@@ -420,8 +631,16 @@ document.addEventListener('DOMContentLoaded', function() {
             const cardMore = document.createElement('div');
             cardMore.className = 'card-more';
             const moreButton = document.createElement('a');
-            const id = `${mantenimientos.id}`;
-            moreButton.href = `/verMas/mantenimientos.html/${id}` 
+
+            cardFeaturesChild2.addEventListener('click', function() {
+                window.location.href = `/sections/mantenimientos-mas.html#comments`;
+            });
+
+            moreButton.addEventListener('click', function() {
+                localStorage.setItem('mantenimientoId', id);
+            });
+
+            moreButton.href = `/sections/mantenimientos-mas.html`
             moreButton.innerHTML = 'Ver más';
             cardMore.appendChild(moreButton);
             card.appendChild(cardFeatures);

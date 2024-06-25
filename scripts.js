@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // elemento del icono usuario
     const userIcon = document.getElementById('user-img');
+    // elemento del logo
+    const logo = document.getElementById('logo-img');
 
     listNav.addEventListener('click', function() {
         // estilos
@@ -96,7 +98,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // evento al tocar las opciones
         sectionContainerRow2.addEventListener('click', function() {
-            window.location.href = "/sections/reportar.html";
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (user) {
+                window.location.href = "/sections/reportar.html";        
+            } else {
+                window.location.href = "/sections/login.html";
+            }
         });
         sectionContainerRow3.addEventListener('click', function() {
             window.location.href = "/sections/cortes.html";
@@ -131,14 +138,17 @@ document.addEventListener("DOMContentLoaded", function() {
     })
       // evento al tocar el icono de usuario (evaluar si esta logeado o no)
       userIcon.addEventListener('click', function() {
-        const user = localStorage.getItem('user');
+        const user = JSON.parse(localStorage.getItem('user'));
         if (user) {
-          // Parsea el JSON a un objeto
-          const userObject = JSON.parse(user);
-          alert('Hola! ' + userObject.nombre);
+          alert('Usuario logueado');
         } else {
         window.location.href = "/sections/login.html";
         }
+    });
+
+    // evento al tocar el logo
+    logo.addEventListener('click', function() {
+        window.location.href = "/";
     });
 
 });

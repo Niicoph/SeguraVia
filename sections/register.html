@@ -6,7 +6,7 @@
     <title>SeguraVía</title>
     <link rel="stylesheet" href="/Styles/login.css">
     <link rel="stylesheet" href="/Styles/media-queries.css">
-    <script src="/Scripts/login.js"></script>
+    <script src="/Scripts/register.js"></script>
 </head>
 <body>
     <div>
@@ -18,15 +18,16 @@
                 <form action="" id="login-form">
                     <input type="email" name="" id="username-i" class="input-info" placeholder="Email">
                     <input type="password" name="" id="password-i" class="input-info" placeholder="contraseña">
+                    <input type="password" name="" id="password-i-confirmation" class="input-info" placeholder="confirmar contraseña">
                     <label for="" id="error"></label>
-                    <button type="submit">Iniciar Sesión</button>
+                    <button type="submit">Registrarse</button>
                     <div>
                         <hr>
                         <p>OR</p>
                         <hr>
                     </div>
-                    <a href=""> ¿Olvidaste tu contraseña? </a>
-                    <label for="">No tenes cuenta? <a href="/sections/register.html">Registrate</a></label>
+                    <p id="already-user"> ¿Ya tenes cuenta? </p>
+                    <label for="">Inicia sesión <a href="/sections/login.html">acá</a></label>
                 </form>
             </section>
             <footer>

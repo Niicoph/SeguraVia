@@ -52,6 +52,7 @@ section > form {
     align-items: center;
     flex-direction: column;
     padding: 20px;
+    gap: 10px;
 }
 
 .input-info {
@@ -63,13 +64,6 @@ section > form {
     color: black;
 }
 
-#username-i {
-    margin-bottom: 5px;
-}
-
-#password-i {
-    margin-bottom: 20px;
-}
 
 section > form > div {
     margin-top: 10px;
@@ -173,3 +167,16 @@ div > img {
     font-style: normal;
     margin-bottom: 10px;
 }
+
+
+
+#already-user {
+    color: #3f41ff;
+    text-decoration: none;
+    font-weight: 900;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+

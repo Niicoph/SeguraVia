@@ -53,80 +53,81 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             if (tipoValue ===  'corte') {
-                const cortes = data.Cortes;
-                const horaFormato12 = obtenerFormato12Horas(horaValue);
-
-                const corte = {
-                    id: cortes.length + 1,
-                    titulo: tituloValue,
-                    fecha: fechaValue,
-                    hora: horaFormato12,
-                    direccion: direccionValue,
-                    likes: 0,
-                    comentarios: 0,
-                    descripcion: descripcionValue,              
-                    tipo: tipoValue
-                };
-        
                 let cortesGuardados = localStorage.getItem('cortes');
                 if (!cortesGuardados) {
                     cortesGuardados = [];
                 } else {
                     cortesGuardados = JSON.parse(cortesGuardados);
                 }
-                cortesGuardados.push(corte);
-                localStorage.setItem('cortes', JSON.stringify(cortesGuardados));
-                alert('Corte reportado correctamente');
-                event.target.reset();
-            } else if (tipoValue === 'accidente') {
-                const accidentes = data.Accidentes;
+                const cortes = data.Cortes;
                 const horaFormato12 = obtenerFormato12Horas(horaValue);
-                const accidente = {
-                    id: accidentes.length + 1,
+                const countCortes = cortesGuardados.length + cortes.length;
+                const corte = {
+                    id: countCortes + 1,
                     titulo: tituloValue,
                     fecha: fechaValue,
                     hora: horaFormato12,
                     direccion: direccionValue,
                     likes: 0,
-                    comentarios: 0,
+                    comentario: 0,
                     descripcion: descripcionValue,              
                     tipo: tipoValue
                 };
-        
+                cortesGuardados.push(corte);
+                localStorage.setItem('cortes', JSON.stringify(cortesGuardados));
+                alert('Corte reportado correctamente');
+                event.target.reset();
+            } else if (tipoValue === 'accidente') {
                 let accidentesGuardados = localStorage.getItem('accidente');
                 if (!accidentesGuardados) {
                     accidentesGuardados = [];
                 } else {
                     accidentesGuardados = JSON.parse(accidentesGuardados);
                 }
-                accidentesGuardados.push(accidente);
-                localStorage.setItem('accidente', JSON.stringify(accidentesGuardados));
-                alert('Corte reportado correctamente');
-                event.target.reset();
-            } else {
-                const mantenimientos = data.Mantenimiento;
+                const accidentes = data.Accidentes;
                 const horaFormato12 = obtenerFormato12Horas(horaValue);
-                const mantenimiento = {
-                    id: mantenimientos.length + 1,
+                const countAccidentes = accidentes.length + accidentesGuardados.length;
+                
+                const accidente = {
+                    id: countAccidentes + 1,
                     titulo: tituloValue,
                     fecha: fechaValue,
                     hora: horaFormato12,
                     direccion: direccionValue,
                     likes: 0,
-                    comentarios: 0,
+                    comentario: 0,
                     descripcion: descripcionValue,              
                     tipo: tipoValue
                 };
-        
+
+                accidentesGuardados.push(accidente);
+                localStorage.setItem('accidente', JSON.stringify(accidentesGuardados));
+                alert('Accidente reportado correctamente');
+                event.target.reset();
+            } else {
                 let mantenimientosGuardados = localStorage.getItem('mantenimientos');
                 if (!mantenimientosGuardados) {
                     mantenimientosGuardados = [];
                 } else {
                     mantenimientosGuardados = JSON.parse(mantenimientosGuardados);
                 }
+                const mantenimientos = data.Mantenimiento;
+                const horaFormato12 = obtenerFormato12Horas(horaValue);
+                const countMantenimientos = mantenimientos.length + mantenimientosGuardados.length;
+                const mantenimiento = {
+                    id: countMantenimientos + 1,
+                    titulo: tituloValue,
+                    fecha: fechaValue,
+                    hora: horaFormato12,
+                    direccion: direccionValue,
+                    likes: 0,
+                    comentario: 0,
+                    descripcion: descripcionValue,              
+                    tipo: tipoValue
+                };
                 mantenimientosGuardados.push(mantenimiento);
                 localStorage.setItem('mantenimientos', JSON.stringify(mantenimientosGuardados));
-                alert('Corte reportado correctamente');
+                alert('Mantenimiento reportado correctamente');
                 event.target.reset();
             }
         })
