@@ -145,3 +145,11 @@ iframe {
 #comment-form > input:focus {
     outline: none;
 }
+
+/* media queries? */
+
+@media screen and (min-width: 300px) and (max-width: 900px) {
+    .right-side-r > p {
+        width: 75%;
+    }
+}

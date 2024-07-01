@@ -26,9 +26,22 @@ cambiar UX/UI
 HACER TODOOOOOOOOOOOOOOo
 
 
-2-agregar nombre y apellido en el login?
-5-Checkear que funcionen los filtros en cada seccion 
-6-implementar el filtrado por texto de input 
-9-podriamos agregar quien realizo el reporte (usuario)
-10-arreglar bug visual cuando hay 5 recientes
-11-Arreglar toda interfaz visual 
+1-agregar nombre y apellido en el register ✅
+2-Checkear que funcionen los filtros en cada seccion  ✅
+3-implementar el filtrado por texto de input ✅
+4-podriamos agregar quien realizo el reporte (usuario) ❌
+5-arreglar bug visual cuando hay 5 recientes ✅
+7-Arreglar cuando no hay accidentes recientes ❌
+8-Limpiar el codigo de todos los lugares (incluidos scripts.js etc) ❌
+9-implementar pagina de nosotros y preguntas frecuentes ? ❌
+10- verificar que recientes en app.js tenga en cuenta cuando se reporte un accidente nuevo ❌
+
+
+-- tener en cuenta 
+Un formulario para validación con JavaScript. El formulario debe tener uno o más campos con validación de todos los siguientes tipos validados:
+
+    Fecha. Debe validarse fecha correctas (29 de febrero solo en año bisiestos, 31 de junio por ejemplo NO es valido,
+    ingresar caracteres no numéricos, etc).
+    Numerico Entero, con control de mayor a cero.
+    Numerico decimal.
+    Correo electrónico

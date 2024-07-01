@@ -35,6 +35,9 @@ document.addEventListener("DOMContentLoaded", function() {
             return response.json();
         })
         .then( data => {
+            // obtenemos el nombre y apellido del usuario logeado
+            const user = JSON.parse(localStorage.getItem('user'));
+
             // Función para obtener el formato de 24 horas
             function obtenerFormato12Horas(horaValue) {
                 const horaSeleccionada = horaValue;
@@ -71,7 +74,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     likes: 0,
                     comentario: 0,
                     descripcion: descripcionValue,              
-                    tipo: tipoValue
+                    tipo: tipoValue,
+                    reportado_por: user.nombre + ' ' + user.apellido
                 };
                 cortesGuardados.push(corte);
                 localStorage.setItem('cortes', JSON.stringify(cortesGuardados));
@@ -97,7 +101,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     likes: 0,
                     comentario: 0,
                     descripcion: descripcionValue,              
-                    tipo: tipoValue
+                    tipo: tipoValue, 
+                    reportado_por: user.nombre + ' ' + user.apellido
                 };
 
                 accidentesGuardados.push(accidente);
@@ -123,7 +128,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     likes: 0,
                     comentario: 0,
                     descripcion: descripcionValue,              
-                    tipo: tipoValue
+                    tipo: tipoValue,
+                    reportado_por: user.nombre + ' ' + user.apellido
                 };
                 mantenimientosGuardados.push(mantenimiento);
                 localStorage.setItem('mantenimientos', JSON.stringify(mantenimientosGuardados));

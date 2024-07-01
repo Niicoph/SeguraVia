@@ -120,6 +120,8 @@
     gap: 5px;
 }
 .right-side {
+    display: flex;
+    justify-content: right;
     width: 35%;
     height: 100%;
 }

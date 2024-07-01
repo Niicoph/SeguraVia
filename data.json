@@ -2,9 +2,9 @@
     "Accidentes" : [
         {
             "id" : 1,
-            "titulo" : "Accidente de tránsito 1",
-            "fecha" : "2024-06-25",
-            "hora" : "6:14 PM",
+            "titulo" : "Accidente de tránsito 1 testing",
+            "fecha" : "2024-07-01",
+            "hora" : "12:14 PM",
             "tipo": "accidente",
             "direccion" : "Av.Roca 2994",
             "likes" : 10,
@@ -31,11 +31,11 @@
         {
             "id" : 2,
             "titulo" : "Accidente de transito 2",
-            "fecha" : "2024-06-25",
-            "hora" : "5:00 PM",
+            "fecha" : "2024-07-01",
+            "hora" : "12:00 PM",
             "tipo": "accidente",
             "direccion" : "Av.Roca",
-            "likes" : 0,
+            "likes" : 10,
             "comentarios" : 330,
             "descripcion" : "Accidente de tránsito en la intersección de Av.Roca y Av.Libertador" , 
             "comentario" : [
@@ -54,8 +54,8 @@
         {
             "id" : 3,
             "titulo" : "Accidente de transito 3",
-            "fecha" : "2024-02-25",
-            "hora" : "5:00 PM",
+            "fecha" : "2024-07-01",
+            "hora" : "12:00 PM",
             "tipo": "accidente",
             "direccion" : "Av.Roca",
             "likes" : 200,
@@ -73,14 +73,107 @@
                     "comentario" : "Que mal"
                 }
             ]
+        }, 
+        {
+            "id" : 4,
+            "titulo" : "Accidente de transito 4",
+            "fecha" : "2024-07-01",
+            "hora" : "12:00 PM",
+            "tipo": "accidente",
+            "direccion" : "Av.Roca",
+            "likes" : 0,
+            "comentarios" : 0,
+            "descripcion" : "Accidente de tránsito en la intersección de Av.Roca y Av.Libertador" , 
+            "comentario" : [
+                {
+                    "id" : 1,
+                    "usuario" : "Juan Perez",
+                    "comentario" : "Que mal"
+                },
+                {
+                    "id" : 2,
+                    "usuario" : "Maria Gomez",
+                    "comentario" : "Que mal"
+                }
+            ]
+        }, 
+        {
+            "id" : 5,
+            "titulo" : "Accidente de transito 5",
+            "fecha" : "2024-06-29",
+            "hora" : "12:00 PM",
+            "tipo": "accidente",
+            "direccion" : "Av.Roca",
+            "likes" : 0,
+            "comentarios" : 0,
+            "descripcion" : "Accidente de tránsito en la intersección de Av.Roca y Av.Libertador" , 
+            "comentario" : [
+                {
+                    "id" : 1,
+                    "usuario" : "Juan Perez",
+                    "comentario" : "Que mal"
+                },
+                {
+                    "id" : 2,
+                    "usuario" : "Maria Gomez",
+                    "comentario" : "Que mal"
+                }
+            ]
+        } , 
+        {
+            "id" : 6,
+            "titulo" : "Accidente de transito 6",
+            "fecha" : "2024-06-29",
+            "hora" : "12:00 PM",
+            "tipo": "accidente",
+            "direccion" : "Av.Roca",
+            "likes" : 0,
+            "comentarios" : 0,
+            "descripcion" : "Accidente de tránsito en la intersección de Av.Roca y Av.Libertador" , 
+            "comentario" : [
+                {
+                    "id" : 1,
+                    "usuario" : "Juan Perez",
+                    "comentario" : "Que mal"
+                },
+                {
+                    "id" : 2,
+                    "usuario" : "Maria Gomez",
+                    "comentario" : "Que mal"
+                }
+            ]
+        } , 
+        {
+            "id" : 7,
+            "titulo" : "Accidente de transito 7",
+            "fecha" : "2024-06-29",
+            "hora" : "12:00 PM",
+            "tipo": "accidente",
+            "direccion" : "Av.Roca",
+            "likes" : 0,
+            "comentarios" : 0,
+            "descripcion" : "Accidente de tránsito en la intersección de Av.Roca y Av.Libertador" , 
+            "comentario" : [
+                {
+                    "id" : 1,
+                    "usuario" : "Juan Perez",
+                    "comentario" : "Que mal"
+                },
+                {
+                    "id" : 2,
+                    "usuario" : "Maria Gomez",
+                    "comentario" : "Que mal"
+                }
+            ]
         }
+        
     ],
     "Cortes" : [
         {
             "id" : 1,
             "titulo" : "corte de luz",
-            "fecha" : "2024-06-25",
-            "hora" : "6:00 PM",
+            "fecha" : "2024-06-29",
+            "hora" : "12:00 PM",
             "tipo": "corte",
             "direccion" : "Av.Roca",
             "likes" : 5,
@@ -102,8 +195,8 @@
         {
             "id" : 2,
             "titulo" : "corte de luz 2",
-            "fecha" : "2024-02-25",
-            "hora" : "5:00 PM",
+            "fecha" : "2024-06-29",
+            "hora" : "12:00 PM",
             "tipo": "corte",
             "direccion" : "Av.Roca",
             "likes" : 0,
@@ -125,8 +218,8 @@
         {
             "id" : 3,
             "titulo" : "corte de luz 3",
-            "fecha" : "2024-10-25",
-            "hora" : "5:00 PM",
+            "fecha" : "2024-12-29",
+            "hora" : "12:00 PM",
             "tipo": "corte",
             "direccion" : "Av.Roca",
             "likes" : 200,
@@ -150,8 +243,8 @@
         {
             "id" : 1,
             "titulo" : "mantenimiento de prueba",
-            "fecha" : "2024-06-25",
-            "hora" : "6:00 PM",
+            "fecha" : "2024-06-29",
+            "hora" : "12:00 PM",
             "tipo": "mantenimiento",
             "direccion" : "Av.Roca",
             "likes" : 0,
@@ -196,7 +289,7 @@
         {
             "id" : 3,
             "titulo" : "mantenimiento de prueba 3",
-            "fecha" : "2024-10-25",
+            "fecha" : "2024-12-25",
             "hora" : "5:00 PM",
             "tipo": "mantenimiento",
             "direccion" : "Av.Roca",

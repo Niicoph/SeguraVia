@@ -35,6 +35,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 window.location.href = '/';
             } else {
                 const error = document.getElementById('error');
+                emailEl.style.border = '1px solid red';
+                passwordEl.style.border = '1px solid red';
                 error.innerHTML = 'Usuario o contraseña incorrectos';
             }
         });

@@ -50,36 +50,40 @@ document.addEventListener("DOMContentLoaded", function() {
                 // card-features
                 const cardFeatures = document.createElement('div');
                 cardFeatures.className = 'card-features';
+
                 // Característica 1: Likes
+                let likes = parseInt(localStorage.getItem(`numeroLikes${mantenimiento.tipo}${mantenimiento.id}`)) || mantenimiento.likes;
+                let userLike = localStorage.getItem(`usuarioLike${mantenimiento.tipo}${mantenimiento.id}`);
+
                 const cardFeaturesChild1 = document.createElement('div');
                 const imgLikes = document.createElement('img');
-                imgLikes.src = '/Images/like_before.png';
                 const likesCount = document.createElement('p');
-                likesCount.textContent = `${mantenimiento.likes}`;
+                imgLikes.src = userLike === 'true' ? '/Images/like_after.png' : '/Images/like_before.png';
+                likesCount.textContent = likes;
+              
                 cardFeaturesChild1.appendChild(imgLikes);
                 cardFeaturesChild1.appendChild(likesCount);
                 cardFeatures.appendChild(cardFeaturesChild1);
 
                 cardFeaturesChild1.addEventListener('click', function() {
                     const user = JSON.parse(localStorage.getItem('user'));
-                
                     if (user) {
-                        const likeKey = `like${mantenimiento.tipo}${mantenimiento.id}`;
-                        let likes = parseInt(localStorage.getItem(likeKey)) 
-                        let likesJson = mantenimiento.likes;
-    
-                        if (!likes) {
-                            imgLikes.src = '/Images/like_after.png';
-                            likesCount.textContent = likesJson + 1;
-                            localStorage.setItem(likeKey, likesJson + 1);
-                        } else {
+                        let currentLikes = parseInt(likesCount.textContent);
+                        let userLike = localStorage.getItem(`usuarioLike${mantenimiento.tipo}${mantenimiento.id}`);
+        
+                        if (userLike === 'true') {
                             imgLikes.src = '/Images/like_before.png';
-                            likesCount.textContent = likesJson
-                            localStorage.removeItem(likeKey);
+                            likesCount.textContent = currentLikes - 1;
+                            localStorage.setItem(`usuarioLike${mantenimiento.tipo}${mantenimiento.id}`, 'false');
+                            localStorage.setItem(`numeroLikes${mantenimiento.tipo}${mantenimiento.id}`, currentLikes - 1);
+                            window.location.reload();
+                        } else {
+                            imgLikes.src = '/Images/like_after.png';
+                            likesCount.textContent = currentLikes + 1;
+                            localStorage.setItem(`usuarioLike${mantenimiento.tipo}${mantenimiento.id}`, 'true');
+                            localStorage.setItem(`numeroLikes${mantenimiento.tipo}${mantenimiento.id}`, currentLikes + 1);
+                            window.location.reload();
                         }
-    
-    
-    
                     } else {
                         alert('Debes iniciar sesión para poder dar like');
                     }
@@ -205,6 +209,22 @@ document.addEventListener("DOMContentLoaded", function() {
                     cardsContainer.appendChild(card);
                 });
             })
+
+            const inputSearch = document.getElementById('text-filter');
+            inputSearch.addEventListener('input', function(event) {
+                let searchValue = event.target.value;
+                let filteredMantenimientos = mantenimientos.filter(mantenimiento => {
+                    return mantenimiento.titulo.toLowerCase().includes(searchValue.toLowerCase());
+                });
+                clearCards();
+                // crear y mostrar las tarjetas filtradas
+                filteredMantenimientos.forEach(mantenimiento => {
+                    const card = createMantenimientoCard(mantenimiento);
+                    cardsContainer.appendChild(card);
+                });
+            });
+
+
             // mostrar todas las tarjetas de mantenimientos al cargar la página
             mantenimientos.forEach(mantenimiento => {
                 const card = createMantenimientoCard(mantenimiento);

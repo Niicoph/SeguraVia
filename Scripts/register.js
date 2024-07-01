@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     const formEl = document.getElementById('login-form');
     const emailEl = document.getElementById('username-i');
+    const nameEl = document.getElementById('name-i');
+    const surnameEl = document.getElementById('lastname-i');
     const passwordEl = document.getElementById('password-i');
     const passwordConfirm = document.getElementById('password-i-confirmation');
 
@@ -11,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const password = passwordEl.value;
         const passwordC = passwordConfirm.value;
         const email = emailEl.value;
+        const nombre = nameEl.value;
+        let apellido = surnameEl.value
 
         fetch('/data.json')
         .then(response => {
@@ -35,13 +39,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 error.innerHTML = 'Ese email ya se encuentra en uso';
             } else {
                 if (password === passwordC) {
-                    const newUser = {
-                        email: email,
-                        password: password
+                    if (surname === '') { // dado que el apellido es opcional se le asigna un valor por defecto
+                        const newUser = {
+                            email: email,
+                            name: nombre,
+                            surname: '',
+                            password: password
+                        }
+                        alert('Usuario creado con éxito');
+                        localStorage.setItem('user', JSON.stringify(newUser));
+                        window.location.href = '/';
+                    } else {
+                        const newUser = {
+                            email: email,
+                            name: nombre,
+                            surname: apellido,
+                            password: password
+                        }
+                        alert('Usuario creado con éxito');
+                        localStorage.setItem('user', JSON.stringify(newUser));
+                        window.location.href = '/';
                     }
-                    alert('Usuario creado con éxito');
-                    localStorage.setItem('user', JSON.stringify(newUser));
-                    window.location.href = '/';
                 }
             }
         }) 

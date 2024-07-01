@@ -46,26 +46,34 @@
         width: 73%;
     }
     .card-features > div {
+        height: 80%;
         width: 15%;
         font-size: 1.2em;
     }
     .card-features > div > img {
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
     }
     .recientes-data-container {
         height: 800px;
         overflow: auto;
         margin-bottom: 20px;
     }
-    .card-header > h2 , .card-header > h3 {
-        font-size: 1.7em;
+    .card-header > .right-side > h3 {
+        font-size: 1.2em;
+    }
+    .card-header > .left-side > h2 {
+        font-size: 1.5em;
+    }
+    .card-header > .left-side > p {
+        font-size: 1em;
     }
     .card-more {
         justify-content: right;
     }
     .card-more > a {
-        width: 60%;
+        height: 80%;
+        width: 50%;
         font-size: 1.2em;
     }
     .safety-container {

@@ -55,42 +55,45 @@ document.addEventListener("DOMContentLoaded", function() {
                 cardFeatures.className = 'card-features';
 
                 // Característica 1: Likes
+
+                let likes = parseInt(localStorage.getItem(`numeroLikes${accidente.tipo}${accidente.id}`)) || accidente.likes;
+                let userLike = localStorage.getItem(`usuarioLike${accidente.tipo}${accidente.id}`);
+
                 const cardFeaturesChild1 = document.createElement('div');
                 const imgLikes = document.createElement('img');
-                imgLikes.src = '/Images/like_before.png';
                 const likesCount = document.createElement('p');
-                likesCount.textContent = accidente.likes;
+                imgLikes.src = userLike === 'true' ? '/Images/like_after.png' : '/Images/like_before.png';
+                likesCount.textContent = likes;
                 
-                cardFeaturesChild1.addEventListener('click', function() {
-                    const user = JSON.parse(localStorage.getItem('user'));
-                
-                    if (user) {
-                        const likeKey = `like${accidente.tipo}${accidente.id}`;
-                        let likes = parseInt(localStorage.getItem(likeKey)) 
-                        let likesJson = accidente.likes;
-    
-                        if (!likes) {
-                            imgLikes.src = '/Images/like_after.png';
-                            likesCount.textContent = likesJson + 1;
-                            localStorage.setItem(likeKey, likesJson + 1);
-                        } else {
-                            imgLikes.src = '/Images/like_before.png';
-                            likesCount.textContent = likesJson
-                            localStorage.removeItem(likeKey);
-                        }
-                    } else {
-                        alert('Debes iniciar sesión para poder dar like');
-                    }
-                });
-    
-
-
-
-
 
                 cardFeaturesChild1.appendChild(imgLikes);
                 cardFeaturesChild1.appendChild(likesCount);
                 cardFeatures.appendChild(cardFeaturesChild1);
+
+                cardFeaturesChild1.addEventListener('click', function() {
+                    const user = JSON.parse(localStorage.getItem('user'));
+                    if (user) {
+                        let currentLikes = parseInt(likesCount.textContent);
+                        let userLike = localStorage.getItem(`usuarioLike${accidente.tipo}${accidente.id}`);
+
+                        if (userLike === 'true'){
+                            imgLikes.src = '/Images/like_before.png';
+                            likesCount.textContent = currentLikes - 1;
+                            localStorage.setItem(`numeroLikes${accidente.tipo}${accidente.id}`, currentLikes - 1);
+                            localStorage.setItem(`usuarioLike${accidente.tipo}${accidente.id}`, 'false');
+                            window.location.reload();
+                        } else {
+                            imgLikes.src = '/Images/like_after.png';
+                            likesCount.textContent = currentLikes + 1;
+                            localStorage.setItem(`numeroLikes${accidente.tipo}${accidente.id}`, currentLikes + 1);
+                            localStorage.setItem(`usuarioLike${accidente.tipo}${accidente.id}`, 'true');
+                            window.location.reload();
+                        }
+                    } else {
+                        alert('Debes iniciar sesión para dar like');
+                    }
+                });
+
 
                 // Característica 2: Comentarios
                 const cardFeaturesChild2 = document.createElement('div');
@@ -212,6 +215,27 @@ document.addEventListener("DOMContentLoaded", function() {
                     cardsContainer.appendChild(card);
                 });
             });
+
+            // filtramos en base al input text 
+            // recuperamos el elemento del input 
+            const inputSearch = document.getElementById('text-filter')
+            inputSearch.addEventListener('input', function(event) {
+                let value = event.target.value;
+                let filteredAccidentes = accidentes.filter(accidente => {
+                    return accidente.titulo.toLowerCase().includes(value.toLowerCase());
+                });
+
+                // Limpiar las tarjetas actuales
+                clearCards();
+
+                // Crear y mostrar las tarjetas filtradas
+                filteredAccidentes.forEach(accidente => {
+                    const card = createAccidenteCard(accidente);
+                    cardsContainer.appendChild(card);
+                });
+            })
+
+
 
             // Mostrar todas las tarjetas por defecto al cargar la página
             accidentes.forEach(accidente => {

@@ -1,11 +1,12 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // recuperamos los cortes del local storage
+    // recuperamos los corte del local storage
     let cortesLocalStorage = localStorage.getItem('cortes');
     if (!cortesLocalStorage) {
         cortesLocalStorage = [];
     } else {
         cortesLocalStorage = JSON.parse(cortesLocalStorage);
     }
+
 
 
     fetch('/data.json')
@@ -17,10 +18,10 @@ document.addEventListener("DOMContentLoaded", function() {
     })
     .then(data => {
         const cortesJSON = data.Cortes
-        const cortes = cortesJSON.concat(cortesLocalStorage);
+        const corte = cortesJSON.concat(cortesLocalStorage);
         const cardsContainer = document.querySelector('.cards-container');
 
-        // Función para crear tarjetas de cortes
+        // Función para crear tarjetas de corte
         function createCorteCard(corte) {
             // card
             const card = document.createElement('div');
@@ -53,32 +54,39 @@ document.addEventListener("DOMContentLoaded", function() {
             const cardFeatures = document.createElement('div');
             cardFeatures.className = 'card-features';
             // Característica 1: Likes
+
+            let likes = parseInt(localStorage.getItem(`numeroLikes${corte.tipo}${corte.id}`)) || corte.likes;
+            let userLike = localStorage.getItem(`usuarioLike${corte.tipo}${corte.id}`);
+
             const cardFeaturesChild1 = document.createElement('div');
             const imgLikes = document.createElement('img');
-            imgLikes.src = '/Images/like_before.png';
             const likesCount = document.createElement('p');
-            likesCount.textContent = `${corte.likes}`;
+            imgLikes.src = userLike === 'true' ? '/Images/like_after.png' : '/Images/like_before.png';
+            likesCount.textContent = likes;
+
+            cardFeaturesChild1.appendChild(imgLikes);
+            cardFeaturesChild1.appendChild(likesCount);
+            cardFeatures.appendChild(cardFeaturesChild1);
 
             cardFeaturesChild1.addEventListener('click', function() {
                 const user = JSON.parse(localStorage.getItem('user'));
-            
                 if (user) {
-                    const likeKey = `like${corte.tipo}${corte.id}`;
-                    let likes = parseInt(localStorage.getItem(likeKey)) 
-                    let likesJson = corte.likes;
+                    let currentLikes = parseInt(likesCount.textContent);
+                    let userLike = localStorage.getItem(`usuarioLike${corte.tipo}${corte.id}`);
 
-                    if (!likes) {
-                        imgLikes.src = '/Images/like_after.png';
-                        likesCount.textContent = likesJson + 1;
-                        localStorage.setItem(likeKey, likesJson + 1);
-                    } else {
+                    if (userLike === 'true') {
                         imgLikes.src = '/Images/like_before.png';
-                        likesCount.textContent = likesJson
-                        localStorage.removeItem(likeKey);
+                        likesCount.textContent = currentLikes - 1;
+                        localStorage.setItem(`usuarioLike${corte.tipo}${corte.id}`, 'false');
+                        localStorage.setItem(`numeroLikes${corte.tipo}${corte.id}`, currentLikes - 1);
+                        window.location.reload();
+                    } else {
+                        imgLikes.src = '/Images/like_after.png';
+                        likesCount.textContent = currentLikes + 1;
+                        localStorage.setItem(`usuarioLike${corte.tipo}${corte.id}`, 'true');
+                        localStorage.setItem(`numeroLikes${corte.tipo}${corte.id}`, currentLikes + 1);
+                        window.location.reload();
                     }
-
-
-
                 } else {
                     alert('Debes iniciar sesión para poder dar like');
                 }
@@ -86,10 +94,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
-            cardFeaturesChild1.appendChild(imgLikes);
-            cardFeaturesChild1.appendChild(likesCount);
-            cardFeatures.appendChild(cardFeaturesChild1);
             // Característica 2: Comentarios
             const id = corte.id;
             const cardFeaturesChild2 = document.createElement('div');
@@ -117,12 +121,12 @@ document.addEventListener("DOMContentLoaded", function() {
             const cardMore = document.createElement('div');
             cardMore.className = 'card-more';
             const moreButton = document.createElement('a');
-            moreButton.href = `/sections/cortes-mas.html`
+            moreButton.href = `/sections/corte-mas.html`
             moreButton.innerHTML = 'Ver más';
 
             cardFeaturesChild2.addEventListener('click', function() {
                 localStorage.setItem('corteId', id);
-                window.location.href = '/sections/cortes-mas.html#comments';
+                window.location.href = '/sections/corte-mas.html#comments';
             });
 
             moreButton.addEventListener('click', function() {
@@ -153,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     let fechaActual = new Date();
                     let hora = fechaActual.toLocaleTimeString('en-US', {hour: 'numeric', hour12: true});
                     const actualDate = new Date().toLocaleDateString('en-GB').split('/').reverse().join('-');
-                    filteredCortes = cortes.filter( corte => {
+                    filteredCortes = corte.filter( corte => {
                         let horaCorte = corte.hora.split(':')[0];
                         let ampmCorte = corte.hora.split(' ')[1];
                         let horaCompleta = horaCorte + ' ' + ampmCorte;
@@ -162,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     break;
                 case '2':
                     const dia = new Date().toLocaleDateString('en-GB').split('/').reverse().join('-');
-                    filteredCortes = cortes.filter( corte => {
+                    filteredCortes = corte.filter( corte => {
                         let diaCorte = corte.fecha
                         return dia = diaCorte;
                     })
@@ -170,18 +174,18 @@ document.addEventListener("DOMContentLoaded", function() {
                 case '3':
                     let date = new Date();
                     let mes = date.getMonth() + 1 ;
-                    filteredCortes = cortes.filter(corte => {
+                    filteredCortes = corte.filter(corte => {
                         let fechaCorte = corte.fecha.split('-');
                         let mesCorte = Number(fechaCorte[1]);
                         return mesCorte === mes;
                     })
                     break;
                 case '4':
-                    filteredCortes = cortes.sort((a, b) => b.likes - a.likes)
+                    filteredCortes = corte.sort((a, b) => b.likes - a.likes)
                     break;
                 case '5':
                     let commentsNumber = [];
-                    cortes.forEach(corte => {
+                    corte.forEach(corte => {
                         let comment = localStorage.getItem(`comentariosCorte${corte.id}Length`);
                         if (!comment) {
                             commentsNumber.push({ corte: corte, cantidadComentarios: corte.comentario.length });
@@ -193,7 +197,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     filteredCortes = commentsNumber.map(corte => corte.corte);
                     break;
                 default:
-                    filteredCortes = cortes
+                    filteredCortes = corte
                     break;
             }
 
@@ -207,8 +211,19 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
 
+        const inputSearch = document.getElementById('text-filter')
+        inputSearch.addEventListener('input', function(event) {
+            let searchValue = event.target.value.toLowerCase();
+            let filteredCortes = corte.filter(corte => corte.titulo.toLowerCase().includes(searchValue));
+            clearCards();
+            filteredCortes.forEach(corte => {
+                const card = createCorteCard(corte);
+                cardsContainer.appendChild(card);
+            });
+        });
+
         // mostrar todas las tarjetas por defecto
-        cortes.forEach(corte => {
+        corte.forEach(corte => {
             const card = createCorteCard(corte);
             cardsContainer.appendChild(card);
         });

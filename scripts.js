@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function() {
       userIcon.addEventListener('click', function() {
         const user = JSON.parse(localStorage.getItem('user'));
         if (user) {
-          alert('Usuario logueado');
+          alert('Hola ' + user.nombre + ' ' + user.apellido + '!');
         } else {
         window.location.href = "/sections/login.html";
         }
