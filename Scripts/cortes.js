@@ -121,12 +121,12 @@ document.addEventListener("DOMContentLoaded", function() {
             const cardMore = document.createElement('div');
             cardMore.className = 'card-more';
             const moreButton = document.createElement('a');
-            moreButton.href = `/sections/corte-mas.html`
+            moreButton.href = `/sections/cortes-mas.html`
             moreButton.innerHTML = 'Ver más';
 
             cardFeaturesChild2.addEventListener('click', function() {
                 localStorage.setItem('corteId', id);
-                window.location.href = '/sections/corte-mas.html#comments';
+                window.location.href = '/sections/cortes-mas.html#comments';
             });
 
             moreButton.addEventListener('click', function() {
@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     const dia = new Date().toLocaleDateString('en-GB').split('/').reverse().join('-');
                     filteredCortes = corte.filter( corte => {
                         let diaCorte = corte.fecha
-                        return dia = diaCorte;
+                        return dia === diaCorte;
                     })
                     break;
                 case '3':
